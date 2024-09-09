@@ -5,6 +5,7 @@ import { loadControllers, scopePerRequest } from 'awilix-express';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import express, { Request, Response } from 'express';
+import path from 'path';
 
 import { container } from './container';
 import { dbConfig } from './lib/config';
@@ -28,6 +29,9 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(bodyParser.json());
+
+// serve static files
+app.use('/docs', express.static(path.join(__dirname, 'public/pdfs')));
 
 // container
 container.register({
