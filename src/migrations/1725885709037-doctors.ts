@@ -17,11 +17,11 @@ export class Doctor1725885709037 implements MigrationInterface {
                         type: 'varchar',
                     },
                     {
-                        name: 'firstName',
+                        name: 'first_name',
                         type: 'varchar',
                     },
                     {
-                        name: 'lastName',
+                        name: 'last_name',
                         type: 'varchar',
                     },
                     {

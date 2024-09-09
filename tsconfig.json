@@ -35,14 +35,10 @@
         "baseUrl": "./" /* Specify the base directory to resolve non-relative module names. */,
         "paths": {
             "@project/*": ["src/*"],
-            "@project/config": ["src/config"],
-            "@project/config/*": ["src/config/*"],
-            "@project/entities": ["src/entities"],
-            "@project/entities/*": ["src/entities/*"],
-            "@project/middlewares": ["src/middlewares"],
-            "@project/middlewares/*": ["src/middlewares/*"],
-            "@project/users": ["src/lib/users"],
-            "@project/users/*": ["src/lib/users/*"]
+            "@project/config": ["src/lib/config"],
+            "@project/config/*": ["src/lib/config/*"],
+            "@project/utils": ["src/utils"],
+            "@project/utils/*": ["src/utils/*"]
         } /* Specify a set of entries that re-map imports to additional lookup locations. */,
         // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */
         // "typeRoots": [],                                  /* Specify multiple folders that act like './node_modules/@types'. */

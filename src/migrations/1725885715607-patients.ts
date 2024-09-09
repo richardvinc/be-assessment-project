@@ -13,11 +13,11 @@ export class Patient1725885715607 implements MigrationInterface {
                         isGenerated: true,
                     },
                     {
-                        name: 'firstName',
+                        name: 'first_name',
                         type: 'varchar',
                     },
                     {
-                        name: 'lastName',
+                        name: 'last_name',
                         type: 'varchar',
                     },
                     {

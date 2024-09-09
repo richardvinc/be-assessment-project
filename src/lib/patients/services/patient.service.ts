@@ -1,5 +1,6 @@
 import { DataSource, Repository } from 'typeorm';
 
+import { GetPatientByIDDTO } from '../dtos/get-patient-by-id.dto';
 import { Patient } from '../entities/patient.entity';
 
 export class PatientService {
@@ -10,10 +11,12 @@ export class PatientService {
     }
 
     async getAll() {
-        throw new Error('Not implemented');
+        return await this.repository.find();
     }
 
-    async getById(id: string) {
-        throw new Error('Not implemented');
+    async getById(dto: GetPatientByIDDTO) {
+        return await this.repository.findOneBy({
+            id: dto.id,
+        });
     }
 }

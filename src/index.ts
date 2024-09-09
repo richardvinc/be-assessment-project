@@ -6,9 +6,11 @@ import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import express, { Request, Response } from 'express';
 
-import { dbConfig } from './config';
 import { container } from './container';
-import { UserService } from './lib/users/services/user.service';
+import { dbConfig } from './lib/config';
+import { DoctorService } from './lib/doctors/services/doctor.service';
+import { MedicalCertificateService } from './lib/medical-certificates/services/medical-certificate.service';
+import { PatientService } from './lib/patients/services/patient.service';
 
 dotenv.config();
 dbConfig
@@ -30,7 +32,9 @@ app.use(bodyParser.json());
 // container
 container.register({
     db: asValue(dbConfig),
-    userService: asClass(UserService),
+    doctorService: asClass(DoctorService),
+    patientService: asClass(PatientService),
+    medicalCertificateService: asClass(MedicalCertificateService),
 });
 app.use(scopePerRequest(container));
 
