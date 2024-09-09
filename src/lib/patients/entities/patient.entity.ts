@@ -12,6 +12,10 @@ import { MedicalCertificateEntity } from '../../medical-certificates/entities/me
 
 @Entity('patients')
 export class PatientEntity {
+    constructor(data: Partial<PatientEntity>) {
+        Object.assign(this, data);
+    }
+
     @PrimaryColumn({ type: 'uuid', generated: 'uuid' })
     id: string;
 
@@ -20,6 +24,9 @@ export class PatientEntity {
 
     @Column({ name: 'last_name' })
     lastName: string;
+
+    @Column({ name: 'gender' })
+    gender: string;
 
     @Column({ name: 'date_of_birth', type: 'date' })
     dateOfBirth: Date;
