@@ -50,4 +50,10 @@ export class MedicalCertificateController {
 
         return res.json(await this.medicalCertificateService.create(domain));
     }
+
+    @route('/dummy/pdf')
+    @POST()
+    async createDummyPdf(req: Request, res: Response) {
+        return res.json(await this.medicalCertificateService.createDummyPdf());
+    }
 }
