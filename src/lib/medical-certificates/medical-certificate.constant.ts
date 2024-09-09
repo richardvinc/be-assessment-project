@@ -1,4 +1,4 @@
-export const enum REPORT_CATEGORY {
+export enum REPORT_CATEGORY {
     TREATMENT = 'TREATMENT',
     ACCIDENT = 'ACCIDENT',
     EMERGENCY = 'EMERGENCY',

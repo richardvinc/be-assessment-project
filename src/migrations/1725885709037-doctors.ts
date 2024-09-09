@@ -13,7 +13,7 @@ export class Doctor1725885709037 implements MigrationInterface {
                         isGenerated: true,
                     },
                     {
-                        name: 'employee_id',
+                        name: 'license_number',
                         type: 'varchar',
                     },
                     {

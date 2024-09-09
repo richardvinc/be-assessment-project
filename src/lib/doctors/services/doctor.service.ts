@@ -1,19 +1,21 @@
 import { DataSource, Repository } from 'typeorm';
 
-import { Doctor } from '../entities/doctor.entity';
+import { DoctorEntity } from '../entities/doctor.entity';
 
 export class DoctorService {
-    repository: Repository<Doctor>;
+    repository: Repository<DoctorEntity>;
 
     constructor(private readonly db: DataSource) {
-        this.repository = db.getRepository(Doctor);
+        this.repository = db.getRepository(DoctorEntity);
     }
 
     async getAll() {
-        throw new Error('Not implemented');
+        return this.repository.find();
     }
 
     async getById(id: string) {
-        throw new Error('Not implemented');
+        return this.repository.findOneBy({
+            id,
+        });
     }
 }

@@ -25,6 +25,6 @@ export class PatientController {
             return res.status(400).json(errors);
         }
 
-        return res.json(await this.patientService.getById(dto));
+        return res.json(await this.patientService.getById(dto.id));
     }
 }

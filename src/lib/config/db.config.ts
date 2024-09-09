@@ -13,7 +13,7 @@ export const dbConfig: DataSource = new DataSource({
     entities: [__dirname + '/../**/entities/*.entity.ts'],
     synchronize: false,
     logging: true,
-    migrations: [__dirname + '/../migrations/*.ts'],
+    migrations: [__dirname + '/../../migrations/*.ts'],
 });
 
 export const getDb = async () => {

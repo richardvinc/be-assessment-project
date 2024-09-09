@@ -1,22 +1,21 @@
 import { DataSource, Repository } from 'typeorm';
 
-import { GetPatientByIDDTO } from '../dtos/get-patient-by-id.dto';
-import { Patient } from '../entities/patient.entity';
+import { PatientEntity } from '../entities/patient.entity';
 
 export class PatientService {
-    repository: Repository<Patient>;
+    repository: Repository<PatientEntity>;
 
     constructor(private readonly db: DataSource) {
-        this.repository = db.getRepository(Patient);
+        this.repository = db.getRepository(PatientEntity);
     }
 
     async getAll() {
         return await this.repository.find();
     }
 
-    async getById(dto: GetPatientByIDDTO) {
+    async getById(id: string) {
         return await this.repository.findOneBy({
-            id: dto.id,
+            id,
         });
     }
 }

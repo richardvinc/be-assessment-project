@@ -34,6 +34,14 @@ export class MedicalCertificates1725885722196 implements MigrationInterface {
                         type: 'varchar',
                     },
                     {
+                        name: 'start_date',
+                        type: 'date',
+                    },
+                    {
+                        name: 'end_date',
+                        type: 'date',
+                    },
+                    {
                         name: 'created_at',
                         type: 'timestamptz',
                         default: 'now()',

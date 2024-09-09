@@ -8,10 +8,10 @@ import {
     UpdateDateColumn,
 } from 'typeorm';
 
-import { MedicalCertificate } from '@project/lib/medical-certificates/entities/medical-certificate.entity';
+import { MedicalCertificateEntity } from '../../medical-certificates/entities/medical-certificate.entity';
 
 @Entity('patients')
-export class Patient {
+export class PatientEntity {
     @PrimaryColumn({ type: 'uuid', generated: 'uuid' })
     id: string;
 
@@ -42,11 +42,11 @@ export class Patient {
         nullable: true,
         default: null,
     })
-    deletedAt: Date;
+    deletedAt: Date | null;
 
     @OneToMany(
-        () => MedicalCertificate,
+        () => MedicalCertificateEntity,
         (medicalCertificate) => medicalCertificate.patient
     )
-    medicalCertificates: MedicalCertificate[];
+    medicalCertificates?: MedicalCertificateEntity[];
 }
