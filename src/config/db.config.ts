@@ -11,7 +11,7 @@ export const dbConfig: DataSource = new DataSource({
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
     entities: [__dirname + '/../entities/*.entity.ts'],
-    synchronize: true,
+    synchronize: false,
     logging: true,
     migrations: [__dirname + '/../migrations/*.ts'],
 });

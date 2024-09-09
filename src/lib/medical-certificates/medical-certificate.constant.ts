@@ -1,0 +1,6 @@
+export const enum REPORT_CATEGORY {
+    TREATMENT = 'TREATMENT',
+    ACCIDENT = 'ACCIDENT',
+    EMERGENCY = 'EMERGENCY',
+    BVG = 'BVG',
+}
