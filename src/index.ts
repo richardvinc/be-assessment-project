@@ -3,6 +3,7 @@ import 'reflect-metadata';
 import { asClass, asValue } from 'awilix';
 import { loadControllers, scopePerRequest } from 'awilix-express';
 import bodyParser from 'body-parser';
+import cors from 'cors';
 import dotenv from 'dotenv';
 import express, { Request, Response } from 'express';
 import path from 'path';
@@ -29,6 +30,12 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(bodyParser.json());
+app.use(
+    cors({
+        origin: '*',
+        methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+    })
+);
 
 // serve static files
 app.use('/docs', express.static(path.join(__dirname, 'public/pdfs')));

@@ -1,6 +1,8 @@
 import { GET, POST, route } from 'awilix-express';
+import { instanceToPlain } from 'class-transformer';
 import { Request, Response } from 'express';
 
+import { BaseController } from '../shared/controller/base.controller';
 import { ValidationUtils } from '../utils';
 import { PatientDomain } from './domains/patient.domain';
 import { CreatePatientDTO } from './dtos/create-patient.dto';
@@ -9,12 +11,17 @@ import { GetPatientByIDDTO } from './dtos/get-patient-by-id.dto';
 import { PatientService } from './services/patient.service';
 
 @route('/patients')
-export class PatientController {
-    constructor(private readonly patientService: PatientService) {}
+export class PatientController extends BaseController {
+    constructor(private readonly patientService: PatientService) {
+        super();
+    }
 
     @GET()
     async getAll(req: Request, res: Response) {
-        return res.json(await this.patientService.getAll());
+        return this.successResponse(
+            res,
+            instanceToPlain(await this.patientService.getAll())
+        );
     }
 
     @POST()
@@ -39,7 +46,10 @@ export class PatientController {
             deletedAt: null,
         });
 
-        return res.json(await this.patientService.create(domain));
+        return this.successResponse(
+            res,
+            instanceToPlain(await this.patientService.create(domain))
+        );
     }
 
     @route('/find')
@@ -53,7 +63,10 @@ export class PatientController {
             return res.status(400).json(errors);
         }
 
-        return res.json(await this.patientService.findByLastName(dto.name));
+        return this.successResponse(
+            res,
+            instanceToPlain(await this.patientService.findByLastName(dto.name))
+        );
     }
 
     @route('/:id')
@@ -67,6 +80,12 @@ export class PatientController {
             return res.status(400).json(errors);
         }
 
-        return res.json(await this.patientService.getById(dto.id));
+        const obj = await this.patientService.getById(dto.id);
+
+        if (!obj) {
+            return res.status(404).json({ message: 'Not found' });
+        }
+
+        return this.successResponse(res, instanceToPlain(obj));
     }
 }

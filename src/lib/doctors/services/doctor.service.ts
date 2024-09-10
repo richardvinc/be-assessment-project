@@ -14,8 +14,10 @@ export class DoctorService {
     }
 
     async getById(id: string) {
-        return this.repository.findOneBy({
+        const doctor = this.repository.findOneBy({
             id,
         });
+
+        return doctor;
     }
 }

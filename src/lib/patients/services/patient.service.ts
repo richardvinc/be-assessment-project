@@ -1,3 +1,4 @@
+import { instanceToPlain } from 'class-transformer';
 import { DataSource, Like, Repository } from 'typeorm';
 
 import { PatientDomain } from '../domains/patient.domain';
@@ -15,17 +16,21 @@ export class PatientService {
     }
 
     async getById(id: string) {
-        return await this.repository.findOneBy({
+        const patient = await this.repository.findOneBy({
             id,
         });
+
+        return patient;
     }
 
     async findByLastName(name: string) {
-        return await this.repository.find({
-            where: {
-                lastName: Like(`%${name}%`),
-            },
-        });
+        return instanceToPlain(
+            await this.repository.find({
+                where: {
+                    lastName: Like(`%${name}%`),
+                },
+            })
+        );
     }
 
     async create(domain: PatientDomain) {

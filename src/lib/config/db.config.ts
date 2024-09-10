@@ -10,10 +10,10 @@ export const dbConfig: DataSource = new DataSource({
     username: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
-    entities: [__dirname + '/../**/entities/*.entity.ts'],
+    entities: [__dirname + '/../**/entities/*.entity.{js,ts}'],
     synchronize: false,
     logging: true,
-    migrations: [__dirname + '/../../migrations/*.ts'],
+    migrations: [__dirname + '/../../migrations/*.{js,ts}'],
 });
 
 export const getDb = async () => {

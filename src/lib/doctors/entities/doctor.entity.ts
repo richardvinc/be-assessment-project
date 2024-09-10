@@ -1,3 +1,4 @@
+import { Exclude, Expose } from 'class-transformer';
 import {
     Column,
     CreateDateColumn,
@@ -16,21 +17,27 @@ export class DoctorEntity {
     id: string;
 
     @Column({ name: 'license_number' })
+    @Expose({ name: 'license_number' })
     licenseNumber: string;
 
     @Column({ name: 'first_name' })
+    @Expose({ name: 'first_name' })
     firstName: string;
 
     @Column({ name: 'last_name' })
+    @Expose({ name: 'last_name' })
     lastName: string;
 
     @Column({ name: 'date_of_birth', type: 'date' })
+    @Expose({ name: 'date_of_birth' })
     dateOfBirth: Date;
 
     @CreateDateColumn({ name: 'created_at', type: 'timestamptz' })
+    @Expose({ name: 'created_at' })
     createdAt: Date;
 
     @UpdateDateColumn({ name: 'updated_at', type: 'timestamptz' })
+    @Exclude()
     updatedAt: Date;
 
     @DeleteDateColumn({
@@ -39,11 +46,13 @@ export class DoctorEntity {
         nullable: true,
         default: null,
     })
+    @Exclude()
     deletedAt: Date | null;
 
     @OneToMany(
         () => MedicalCertificateEntity,
         (medicalCertificate) => medicalCertificate.doctor
     )
+    @Exclude()
     medicalCertificates?: MedicalCertificateEntity[];
 }

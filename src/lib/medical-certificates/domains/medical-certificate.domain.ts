@@ -7,8 +7,12 @@ interface props {
     patientId: string;
     doctorId: string;
     diagnosis: string;
-    startDate: Date;
-    endDate: Date;
+    insuranceName: string;
+    costUnit: string;
+    status: string;
+    establishmentNo: string;
+    datum: string;
+    nearestHospital: string;
     category: REPORT_CATEGORY;
 
     createdAt: Date;
@@ -17,7 +21,15 @@ interface props {
 }
 
 type updateableProps = Partial<
-    Pick<props, 'diagnosis' | 'startDate' | 'endDate' | 'category'>
+    Pick<
+        props,
+        | 'diagnosis'
+        | 'costUnit'
+        | 'establishmentNo'
+        | 'nearestHospital'
+        | 'status'
+        | 'category'
+    >
 >;
 
 export class MedicalCertificateDomain {
@@ -55,8 +67,12 @@ export class MedicalCertificateDomain {
             patientId: this._props.patientId,
             category: this._props.category,
             diagnosis: this._props.diagnosis,
-            startDate: this._props.startDate,
-            endDate: this._props.endDate,
+            insuranceName: this._props.insuranceName,
+            costUnit: this._props.costUnit,
+            status: this._props.status,
+            establishmentNo: this._props.establishmentNo,
+            datum: this._props.datum,
+            nearestHospital: this._props.nearestHospital,
             createdAt: this._props.createdAt,
             updatedAt: this._props.updatedAt,
             deletedAt: this._props.deletedAt,

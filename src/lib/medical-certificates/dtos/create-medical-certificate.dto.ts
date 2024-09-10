@@ -1,6 +1,5 @@
 import { Expose } from 'class-transformer';
 import {
-    IsDate,
     IsEnum,
     IsString,
     IsUUID,
@@ -24,13 +23,29 @@ export class CreateMedicalCertificateDTO {
     @MaxLength(100)
     diagnosis: string;
 
-    @IsDate()
-    @Expose({ name: 'start_date' })
-    startDate: Date;
+    @IsString()
+    @Expose({ name: 'insurance_name' })
+    insuranceName: string;
 
-    @IsDate()
-    @Expose({ name: 'end_date' })
-    endDate: Date;
+    @IsString()
+    @Expose({ name: 'cost_unit' })
+    costUnit: string;
+
+    @IsString()
+    @Expose({ name: 'status' })
+    status: string;
+
+    @IsString()
+    @Expose({ name: 'establishment_no' })
+    establishmentNo: string;
+
+    @IsString()
+    @Expose({ name: 'datum' })
+    datum: string;
+
+    @IsString()
+    @Expose({ name: 'nearest_hospital' })
+    nearestHospital: string;
 
     @IsEnum(REPORT_CATEGORY)
     category: REPORT_CATEGORY;

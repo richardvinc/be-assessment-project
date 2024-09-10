@@ -33,14 +33,12 @@ export class MedicalCertificates1725885722196 implements MigrationInterface {
                         name: 'category',
                         type: 'varchar',
                     },
-                    {
-                        name: 'start_date',
-                        type: 'date',
-                    },
-                    {
-                        name: 'end_date',
-                        type: 'date',
-                    },
+                    { name: 'insurance_name', type: 'varchar' },
+                    { name: 'cost_unit', type: 'varchar' },
+                    { name: 'status', type: 'varchar' },
+                    { name: 'establishment_no', type: 'varchar' },
+                    { name: 'datum', type: 'varchar' },
+                    { name: 'nearest_hospital', type: 'varchar' },
                     {
                         name: 'created_at',
                         type: 'timestamptz',
