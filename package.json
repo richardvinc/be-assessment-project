@@ -6,8 +6,8 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "build": "tsc",
         "dev": "nodemon",
-        "migration:run": "npx typeorm-ts-node-esm migration:run -d .\\src\\lib\\config\\db.config.ts",
-        "migration:revert": "npx typeorm-ts-node-esm migration:revert -d .\\src\\lib\\config\\db.config.ts"
+        "migration:run": "tsc && typeorm  migration:run -d .\\dist\\lib\\config\\db.config.js",
+        "migration:revert": "tsc && typeorm migration:revert -d .\\dist\\lib\\config\\db.config.js"
     },
     "nodemonConfig": {
         "ignore": [
