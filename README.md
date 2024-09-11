@@ -3,7 +3,7 @@
 # Overview
 
 This project is the backend required to run [this assesment test](https://github.com/noscai/fullstak-senior-engineer-scheine/tree/main).
-It is supposed to be a minimal configuration to generate general medical certificate (Mustersammlung) in PDF, based on data enterd by user.
+It is supposed to be a minimal configuration to generate general medical certificate (Mustersammlung) in PDF, based on data entered by user.
 All the data in the database is seeded after we run the migration, for it is related for some hardcoded value in the frontend.
 
 # Code Structure
@@ -61,7 +61,7 @@ To build the program, you need to:
 
 ## Run Locally
 
-To build the program, you need to:
+To run the program locally, you need to:
 
 -   Clone the repository
 -   run `cd` command to the directory
