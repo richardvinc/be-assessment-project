@@ -67,12 +67,7 @@ To run the program locally, you need to:
 -   Clone the repository
 -   run `cd` command to the directory
 -   run `npm i` to install all the dependency
--   run `npm run dev` and it will run the server on port `3000`
-
-# Database Migration
-
-All migration files are on the `src/migrations` folder. We will use TypeORM to help us migrate it.
-First, you need to create `.env` file in the root directory and populate it with credential to the database. It should be something like this:
+-   You need to create `.env` file in the root directory and populate it with credential to the database. It should be something like this:
 
 ```
 PORT = 3000
@@ -82,5 +77,11 @@ DB_USERNAME = xxx
 DB_PASSWORD = xxx
 DB_PORT = 5432
 ```
+
+-   run `npm run dev` and it will run the server on port `3000`
+
+# Database Migration
+
+All migration files are on the `src/migrations` folder. We will use TypeORM to help us migrate it.
 
 It seems like there is no easy way to migrate using Typescript that will work on every NodeJs version, so the easiest way is to build the application, and run `npm run migration:run`. It will access `dbConfig.js` file in the `dist` folder.
