@@ -20,7 +20,7 @@ export class CreateMedicalCertificateDTO {
 
     @IsString()
     @MinLength(10)
-    @MaxLength(100)
+    @MaxLength(500)
     diagnosis: string;
 
     @IsString()

@@ -51,6 +51,10 @@ export class Doctor1725885709037 implements MigrationInterface {
                 ],
             })
         );
+
+        await queryRunner.query(`INSERT INTO public.doctors
+            (id, license_number, first_name, last_name, gender, date_of_birth, created_at, updated_at)
+            VALUES('c721e2f5-4eac-4996-9cca-d135efe49e1d', 'N001432J99LMNOP  ', 'popo', 'fernandes', 'M', '1980-12-12', now(), now())`);
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
