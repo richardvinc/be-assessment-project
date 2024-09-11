@@ -47,6 +47,7 @@ We serve generated PDF file as static files from `src/public/pdfs` folder. It wi
 
 -   NodeJS v20.17.0 LTS
 -   Windows 11
+-   PostgreSQL
 
 # Development Setup
 
